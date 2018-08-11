@@ -7,6 +7,6 @@ Resources used in development:
 https://developer.android.com/studio/
 
 
-data entry url http://web.engr.oregonstate.edu/~gwinnk/moodapp/<DATAFILENAME>.php
+data entry url http://web.engr.oregonstate.edu/~gwinnk/moodapp/"DATAFILENAME".php
   
-  change <DATAFILENAME> to "sleepDataTest"  or  "exerciseDataTest"  to input hardcoded data
+  change "DATAFILENAME" to "sleepDataTest"  or  "exerciseDataTest"  to input hardcoded data (don't include quotations)
