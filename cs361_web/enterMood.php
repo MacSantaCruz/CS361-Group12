@@ -28,7 +28,7 @@
       // Escape user inputs for security
       $username = mysqli_real_escape_string($conn, $_POST['username']);
       $mood = mysqli_real_escape_string($conn, $_POST['mood']);
-		  $date = mysqli_real_escape_string($conn, $_POST['date']);
+	  $date = mysqli_real_escape_string($conn, $_POST['date']);
 	
     $queryIn = "SELECT * FROM moodData where username = '$username' AND date='$date' ";
 		$resultIn = mysqli_query($conn, $queryIn);

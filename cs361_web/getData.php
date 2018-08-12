@@ -23,7 +23,7 @@
 	}	
 
 // query to select all information from supplier table
-	$query = "SELECT * FROM moodData ";
+	$query = "SELECT * FROM userData ";
 
 	
 // Get results from query
@@ -33,7 +33,7 @@
 	}
 // get number of columns in table	
 	$fields_num = mysqli_num_fields($result);
-	echo "<h1>moodData Table</h1>";
+	echo "<h1>userData Table</h1>";
 	echo "<table id='t01' border='1'><tr>";
 	
 // printing table headers
@@ -47,8 +47,8 @@
 		// $row is array... foreach( .. ) puts every element
 		// of $row to $cell variable	
 		foreach($row as $cell)		
-			echo "<td>$cell</td>";	
-		echo "</tr>\n";
+			echo "<td>$cell</td>";
+			echo "</tr>\n";
 	}
 
 	mysqli_free_result($result);

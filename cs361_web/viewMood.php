@@ -41,6 +41,7 @@
 		$field = mysqli_fetch_field($result);	
 		echo "<td><b>$field->name</b></td>";
 	}
+
 	echo "</tr>\n";
 	while($row = mysqli_fetch_row($result)) {	
 		echo "<tr>";	
@@ -48,7 +49,9 @@
 		// of $row to $cell variable	
 		foreach($row as $cell)		
 			echo "<td>$cell</td>";	
-		echo "</tr>\n";
+			echo '<td> <a href="editMood.php?user='.$row[0].'&date='.$row[1].'&mood='.$row[2].'">EDIT </a> </td>';
+			echo '<td> <a href="deleteMood.php?user='.$row[0].'&date='.$row[1].'">DELETE </a> </td>';
+			echo "</tr>\n";
 	}
 
 	mysqli_free_result($result);

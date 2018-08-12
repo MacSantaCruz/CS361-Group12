@@ -48,6 +48,8 @@
 		// of $row to $cell variable	
 		foreach($row as $cell)		
 			echo "<td>$cell</td>";	
+			echo '<td> <a href="editExercise.php?user='.$row[0].'&date='.$row[1].'&type='.$row[2].'&time='.$row[3].'">EDIT </a> </td>';
+			echo '<td> <a href="deleteExercise.php?user='.$row[0].'&date='.$row[1].'">DELETE </a> </td>';
 		echo "</tr>\n";
 	}
 
