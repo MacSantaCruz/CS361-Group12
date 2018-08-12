@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-		$currentpage="getData";
+		$currentpage="viewExercise";
 		include "pages.php";
 		
 ?>
@@ -23,7 +23,7 @@
 	}	
 
 // query to select all information from supplier table
-	$query = "SELECT * FROM moodData ";
+	$query = "SELECT * FROM exerciseData ";
 
 	
 // Get results from query
@@ -33,7 +33,7 @@
 	}
 // get number of columns in table	
 	$fields_num = mysqli_num_fields($result);
-	echo "<h1>moodData Table</h1>";
+	echo "<h1>exerciseData Table</h1>";
 	echo "<table id='t01' border='1'><tr>";
 	
 // printing table headers

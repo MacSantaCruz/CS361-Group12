@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-		$currentpage="getData";
+		$currentpage="viewMood";
 		include "pages.php";
 		
 ?>
