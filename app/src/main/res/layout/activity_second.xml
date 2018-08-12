@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20pt"
+        android:text="second acticity is working...."
+        android:textAllCaps="true"
+        android:textColor="@color/colorPrimaryDark"/>
+
+    <EditText
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/new_username"
+        android:hint="username"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:inputType="text"/>
+    <EditText
+    android:layout_width="250dp"
+    android:layout_height="wrap_content"
+    android:id="@+id/new_sleep_time"
+    android:hint="enter hours slept"
+    android:layout_gravity="center_horizontal"
+    android:layout_marginTop="20dp"
+    android:inputType="number"/>
+
+    <EditText
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/new_sleep_quality"
+        android:hint="rank sleep quality 1 to 5"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:inputType="number"/>
+
+    <android.support.design.button.MaterialButton
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="Save data"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:onClick="sleepData"/>
+
+
+</LinearLayout>
