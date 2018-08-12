@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <?php
-		$currentpage="enterData";
+		$currentpage="enterExercise";
 		include "pages.php";
 		
 ?>
 <html>
 	<head>
-		<title>Submit Data</title>
+		<title>Submit Sleep Data</title>
 		<link rel="stylesheet" href="index.css">
 		<script type = "text/javascript"  src = "verifyInput.js" > </script> 
 	</head>
@@ -26,33 +26,20 @@
 	  if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
       // Escape user inputs for security
-      $userName = mysqli_real_escape_string($conn, $_POST['userName']);
-		  $mood = mysqli_real_escape_string($conn, $_POST['mood']);
-		  $sleep = mysqli_real_escape_string($conn, $_POST['sleep']);
+      $username = mysqli_real_escape_string($conn, $_POST['username']);
+      $exerciseType = mysqli_real_escape_string($conn, $_POST['exerciseType']);
 		  $date = mysqli_real_escape_string($conn, $_POST['date']);
-	
-      
+      $exerciseTime = mysqli_real_escape_string($conn, $_POST['exerciseTime']);
+    
     $queryIn = "SELECT * FROM exerciseData where username = '$username' AND date='$date' ";
 		$resultIn = mysqli_query($conn, $queryIn);
-		if (mysqli_num_rows($resultIn)> 0) {
-			$msg ="<h2>Can't Add to Table</h2> There is already an entry for exercise on $date<p>";
-		} 
-//    $queryIn = "SELECT * FROM moodData where username = '$username' AND date='$date' ";
-//		$resultIn = mysqli_query($conn, $queryIn);
-//    elseif(mysqli_num_rows($resultIn)> 0){
-//      $msg ="<h2>Can't Add to Table</h2> There is already an entry for mood on $date<p>";
-//    }
-//    $queryIn = "SELECT * FROM sleepData where username = '$username' AND date='$date' ";
-//		$resultIn = mysqli_query($conn, $queryIn);
-//    elseif(mysqli_num_rows($resultIn)> 0){
-//      $msg ="<h2>Can't Add to Table</h2> There is already an entry for sleep on $date<p>";
-//    }
+    if(mysqli_num_rows($resultIn)> 0){
+      $msg ="<h2>Can't Add to Table</h2> There is already an entry for exercise on $date<p>";
+    }
     else {
 		
 		// attempt insert query 
-//			$query = "INSERT INTO sleepData (username, date, sleepHours, sleepQuality) VALUES ('$username', '$date', '$sleepHours', '$sleepQuality')";
-//      $query = "INSERT INTO moodData (username, date, mood) VALUES ('$username', '$date', '$mood')";
-      $query = "INSERT INTO exerciseData (username, date, exerciseType, exerciseTime) VALUES ('$username', '$date', '$exerciseType', exerciseTime)";
+			$query = "INSERT INTO exerciseData (username, date, exerciseType, exerciseTime) VALUES ('$username', '$date', '$exerciseType', '$exerciseTime')";
 			if(mysqli_query($conn, $query)){
 				$msg =  "Record added successfully.<p>";
 			} else{
@@ -76,19 +63,6 @@ mysqli_close($conn);
     <p>
         <label for="date">Date:</label>
         <input type="date" class="required" name="date" id="date">
-    </p>
-    <p>
-        <label for="mood">Mood(1-5):</label>
-        <input type="number" min=1 max = 5 class="required" name="mood" id="mood" >
-    </p>
-    
-    <p>
-        <label for="sleepHours">Sleep Count:</label>
-        <input type="number" min=1 max = 24 class="required" name="sleepHours" id="sleepHours" >
-    </p>
-    <p>
-        <label for="sleepQuality">Sleep Quality:</label>
-        <input type="number" min=1 max = 24 class="required" name="sleepQuality" id="sleepQuality" >
     </p>
     <p>
         <label for="exerciseType">Exercise Type:</label>

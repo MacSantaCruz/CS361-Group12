@@ -1,5 +1,5 @@
 <header> 
-		My Site - <em>Welcome <span id="username"><?php echo $user;?></span>!</em>
+		CS361-Group 12 <em>Welcome <span id="username"><?php echo $user;?></span>!</em>
 	</header>
 	<nav>
 		<ul>
