@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-		$currentpage="enterGoal";
+		$currentpage="enterMood";
 		include "pages.php";
 		
 ?>
@@ -16,7 +16,6 @@
 
 <?php
     include "header.php";
-    $msg = "Enter Today's Data";
     include 'connectvars.php'; 
     $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 	  
@@ -25,36 +24,35 @@
 	  }
 	  if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-      
+      // Escape user inputs for security
       $username = mysqli_real_escape_string($conn, $_POST['username']);
-      $goal = mysqli_real_escape_string($conn, $_POST['goal']);
-		
-		// attempt insert query 
-			$query = "INSERT INTO goalData (username, goal) VALUES ('$username', '$goal')";
+      $mood = mysqli_real_escape_string($conn, $_POST['mood']);
+	
+      // attempt insert query 
+			$query = "INSERT INTO settingData (username, moodcheck) VALUES ('$username', '$mood')";
 			if(mysqli_query($conn, $query)){
 				$msg =  "Record added successfully.<p>";
-			} 
-      else{
+			} else{
 				echo "ERROR: Could not able to execute $query. " . mysqli_error($conn);
 			}
 		
     }
-
+// close connection
 mysqli_close($conn);
 ?>
 <section>
-    <h2> <?php echo $msg; ?> </h2>
+    <h2> Settings </h2>
 
 <form method="post" id="addForm">
 <fieldset>
-	<legend>Personal Data: </legend>
+	<legend>Account Settings: </legend>
      <p>
         <label for="userName">User Name:</label>
         <input type="text" class="required" name="username" id="username" >
     </p>
     <p>
-        <label for="goal">Goal:</label>
-        <input type="text"  class="required" name="goal" id="goal" >
+        <label for="mood">Mood Check Per Day:</label>
+        <input type="number" min=1 max = 16 class="required" name="mood" id="mood" >
     </p>
     
 
