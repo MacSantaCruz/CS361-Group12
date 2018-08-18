@@ -7,6 +7,5 @@
      "enterSleep" => "enterSleep.php",
      "enterMood" => "enterMood.php",
      "enterExercise" => "enterExercise.php",
-      "enterGoal" => "enterGoal.php",
-    "drawGraph" => "drawGraphs.php");
+	  "enterGoal" => "enterGoal.php");
 ?>
