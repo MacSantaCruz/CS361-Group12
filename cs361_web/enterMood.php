@@ -77,5 +77,6 @@ mysqli_close($conn);
         <input type = "reset"  value = "Clear Form" />
       </p>
 </form>
+<?php include("footer.php"); ?>
 </body>
 </html>
